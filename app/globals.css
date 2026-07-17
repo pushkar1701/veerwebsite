@@ -15,8 +15,8 @@
   --shadow-lg: 0 20px 60px rgba(13, 40, 24, 0.18);
   --radius: 16px;
   --radius-sm: 10px;
-  --font: 'DM Sans', system-ui, sans-serif;
-  --mono: 'JetBrains Mono', monospace;
+  --font: var(--font-dm-sans), system-ui, sans-serif;
+  --mono: var(--font-jetbrains-mono), monospace;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -395,6 +395,7 @@ img {
   font-size: 0.85rem;
   line-height: 1.7;
   overflow-x: auto;
+  color: #cdd6f4;
 }
 
 .code-body .kw { color: #cba6f7; }
