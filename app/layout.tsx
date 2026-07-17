@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     "Veer Malhotra — Python developer, cricket enthusiast, and aspiring coder.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

@@ -20,8 +20,23 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
-    <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
+    <>
+      {menuOpen && (
+        <button
+          className="nav-backdrop"
+          aria-label="Close menu"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+      <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
       <a href="#" className="nav-logo">
         <span className="logo-icon">VM</span>
         <span className="logo-text">Veer Malhotra</span>
@@ -29,6 +44,7 @@ export default function Nav() {
       <button
         className={`nav-toggle ${menuOpen ? "active" : ""}`}
         aria-label="Toggle menu"
+        aria-expanded={menuOpen}
         onClick={() => setMenuOpen((open) => !open)}
       >
         <span></span>
@@ -45,5 +61,6 @@ export default function Nav() {
         ))}
       </ul>
     </nav>
+    </>
   );
 }
